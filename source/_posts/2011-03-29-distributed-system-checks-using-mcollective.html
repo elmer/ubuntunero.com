@@ -1,0 +1,17 @@
+---
+layout: post
+title: Distributed System Checks using MCollective
+published: true
+comments: true
+categories:
+- angelia
+- distributed
+- icinga
+- monitoring
+- nagios
+---
+<p>Before the days, we've been using single node Nagios/Icinga for monitoring system. This does not scale well as the monitoring box become the single point of bottleneck. Other frustrations getting a false positive checks in the night.&nbsp;As we grow our servers globally through Amazon Web Service's multi region feature, it is expected that we need to have an efficient network monitoring system.</p>
+<p>We use&nbsp;<a href="http://docs.puppetlabs.com/mcollective/" target="_blank">MCollective</a>&nbsp;for our parallel execution. However, its plugin system structure offers a rich ways of managing systems. One of its feature is using the <a href="http://projects.puppetlabs.com/projects/mcollective-plugins/wiki/AgentNRPE" target="_self">NRPE Agent</a>. This allows you to use MCollective as transport for Nagios remote checks. Moreover, it can be use to aggregate checks as describe in <a href="http://www.devco.net/archives/2010/07/03/aggregating_nagios_checks_with_mcollective.php" target="_self">this blog post</a>.&nbsp;</p>
+<p>To implement this, I decided to spawn micro instances on each region and installed the NRPE and Nagios Plugins. Create a bunch of checks using Puppet Manifests as describe on the blog. I then replace most of the nrpe checks on my Nagios/Icinga system to use the aggregated system checks. This does not only reduce load on the Icinga box but also distributed checks throughout the regions across the internet.&nbsp;</p>
+<p>As an added bonus, I also installed <a href="https://github.com/ripienaar/angelia" target="_self">Angelia</a>&nbsp;on those monitoring nodes, uses <a href="https://github.com/ripienaar/angelia/blob/master/mcollective-agent/angelianotify/angelianotify.rb" target="_self">angelianotify</a> agent with Notifo plugin.</p>
+<p>There has been activities for&nbsp;better <a href="http://www.devco.net/archives/2011/03/25/monitoring_framework_event_correlation.php" target="_self">monitoring framework</a>&nbsp;and I am excited to learn this.</p>
