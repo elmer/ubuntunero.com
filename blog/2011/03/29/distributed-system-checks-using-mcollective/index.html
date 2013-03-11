@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Elmer Rivera</title>
+  <title>Distributed System Checks using MCollective - Elmer Rivera</title>
   <meta name="author" content="Elmer Rivera">
 
   
-  <meta name="description" content="Earlier this evening, I met with my cloudhead buddies on our local group called Metro Manila Cloud Web Developer Group&nbsp;to share our `cloud &hellip;">
+  <meta name="description" content="Before the days, we&#8217;ve been using single node Nagios/Icinga for monitoring system. This does not scale well as the monitoring box become the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://elmer.github.com/ubuntunero/">
+  <link rel="canonical" href="http://elmer.github.com/ubuntunero/blog/2011/03/29/distributed-system-checks-using-mcollective/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Elmer Rivera" type="application/atom+xml">
@@ -74,58 +74,12 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2011/03/31/metro-manila-cloud-developer-meetup/">Metro Manila Cloud Developer Meetup</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-03-31T00:00:00+08:00" pubdate data-updated="true">Mar 31<span>st</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Earlier this evening, I met with my cloudhead buddies on our local group called <a href="http://www.meetup.com/Metro-Manila-Cloud-Web-Developer-Group/" target="_blank">Metro Manila Cloud Web Developer Group</a>&nbsp;to share our `cloud experiences`. Its a topic I suggested in order for us to learn and share our knowledge to one another. This to encourage everyone to participate. While I missed the <a href="http://www.micro.ph/one/category/Cloud+Dev+Meetup/cloud-heads-got-personal-in-open-discussion-meetup-of-metro-manila-cloud-web-developers-group-feburary-edition-at-ubertor-hackerspace" target="_blank">part 1</a>, I definitely had to be present this time.</p>
-<p>The first one was Cristopher Rigor who talked on Amazon&#8217;s Cloud Management Console. It was followed by <a href="http://twitter.com/arcusIT" target="_blank">Jojo Colina</a> of arcusit. <a href="http://www.arcusit.ph/" target="_blank">ArcusIT</a> is a Philippine based cloud computing provide that is designed to meet the unique requirements of businesses in the country. Jojo showed the Elastic Computing Platform (ECP) Cloud Builder powering the core of ArcusIT.</p>
-<p>He also briefly discussed about <a href="http://www.enomaly.com/" target="_blank">Enomaly&#8217;s</a> <a href="http://spotcloud.com/" target="_blank">Spot Cloud</a>&nbsp;- a global market for getting extra computing capacity. I have not tried it yet, but it sounds cool. Perhaps, getting resources during our testing period where we need a bunch of machines, or even for load testing. I am looking forward to it.</p>
-<p>I hope to hear more undertakings on the cloud and soon to be able to impart as well.</p>
-<p>As always, thanks to <a href="http://www.ubertor.com" target="_blank">Ubertor.com</a> and the folks at <a href="http://outsourcingthingsdone.com/" target="_blank">OutsourcingThingsDone</a> for sponsoring the event. Also nice to meet you <a href="http://twitter.com/frrfernando" target="_blank">Dindo</a>&nbsp;of Microsoft Philippines.</p>
-<p>For more information with the group, please visit our <a href="http://www.meetup.com/Metro-Manila-Cloud-Web-Developer-Group/" target="_blank">MeetUp.com page</a>. More information is also posted in the <a href="http://www.micro.ph/one/category/Cloud+Dev+Meetup" target="_blank">Micro.ph</a> website were the cover the latest events for all things tech in the Philippines.</p>
-<p><img src="/images/cloudwebmeetup.jpg" width="600" height="300"></p>
-<p><span style="border-collapse: collapse; color: #333333; font-family: lucida grande, tahoma, verdana, arial, sans-serif; font-size: 11px;">Dindo of Mcrosoft Philippines, Rizza of Micro.ph/one and OTD, Jojo Colina of ArcusIT, Cristopher Rigor, me and meetup facilitator Ron Maravilla.</span></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/03/29/distributed-system-checks-using-mcollective/">Distributed System Checks Using MCollective</a></h1>
+      <h1 class="entry-title">Distributed System Checks Using MCollective</h1>
     
     
       <p class="meta">
@@ -148,67 +102,22 @@
   </header>
 
 
-  <div class="entry-content"><p>Before the days, we&#8217;ve been using single node Nagios/Icinga for monitoring system. This does not scale well as the monitoring box become the single point of bottleneck. Other frustrations getting a false positive checks in the night.&nbsp;As we grow our servers globally through Amazon Web Service&#8217;s multi region feature, it is expected that we need to have an efficient network monitoring system.</p>
+<div class="entry-content"><p>Before the days, we&#8217;ve been using single node Nagios/Icinga for monitoring system. This does not scale well as the monitoring box become the single point of bottleneck. Other frustrations getting a false positive checks in the night.&nbsp;As we grow our servers globally through Amazon Web Service&#8217;s multi region feature, it is expected that we need to have an efficient network monitoring system.</p>
 <p>We use&nbsp;<a href="http://docs.puppetlabs.com/mcollective/" target="_blank">MCollective</a>&nbsp;for our parallel execution. However, its plugin system structure offers a rich ways of managing systems. One of its feature is using the <a href="http://projects.puppetlabs.com/projects/mcollective-plugins/wiki/AgentNRPE" target="_self">NRPE Agent</a>. This allows you to use MCollective as transport for Nagios remote checks. Moreover, it can be use to aggregate checks as describe in <a href="http://www.devco.net/archives/2010/07/03/aggregating_nagios_checks_with_mcollective.php" target="_self">this blog post</a>.&nbsp;</p>
 <p>To implement this, I decided to spawn micro instances on each region and installed the NRPE and Nagios Plugins. Create a bunch of checks using Puppet Manifests as describe on the blog. I then replace most of the nrpe checks on my Nagios/Icinga system to use the aggregated system checks. This does not only reduce load on the Icinga box but also distributed checks throughout the regions across the internet.&nbsp;</p>
 <p>As an added bonus, I also installed <a href="https://github.com/ripienaar/angelia" target="_self">Angelia</a>&nbsp;on those monitoring nodes, uses <a href="https://github.com/ripienaar/angelia/blob/master/mcollective-agent/angelianotify/angelianotify.rb" target="_self">angelianotify</a> agent with Notifo plugin.</p>
 <p>There has been activities for&nbsp;better <a href="http://www.devco.net/archives/2011/03/25/monitoring_framework_event_correlation.php" target="_self">monitoring framework</a>&nbsp;and I am excited to learn this.</p>
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/03/24/notifo-with-angelia/">Notifo With Angelia</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
   
 
+<span class="byline author vcard">Posted by <span class="fn">Elmer Rivera</span></span>
 
-<time datetime="2011-03-24T00:00:00+08:00" pubdate data-updated="true">Mar 24<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Today while reading on <a href="http://android-developers.blogspot.com/2010/05/android-cloud-to-device-messaging.html">Android Cloud to Device Messaging</a> and <a href="http://en.wikipedia.org/wiki/Apple_Push_Notification_Service">Apple Push Notification Services</a>, I came across a cool service called <a href="http://notifo.com">Notifo.com</a>, and so decided to test. <p /> I&#8217;ve been using <a href="http://icinga.org">Icinga</a> for my monitoring and uses <a href="https://github.com/ripienaar/angelia">Angelia</a> for&nbsp;message delivery. There are a couple of plugins already there and it would be cool to include a &#8216;notifo://&#8217; protocol plugin as well. <p /> It uses the <a href="https://github.com/jot/notifo">notifo</a> gem and here is the <a href="https://github.com/elmer/angelia/commit/b9cf8dcfc32920b99ee4e9869e0e7913def0c6c5">code</a></p>
-<p>There is another method <a href="http://poller.se/2011/03/using-notifo-with-nagios/" target="_blank">here</a>&nbsp;and a <a href="http://pypi.python.org/pypi/nagifo/0.1.3" target="_blank">Nagifo</a> project.</p>
-<p><img src="/images/notifo.png"></p>
-<p>&nbsp;</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/03/07/rump-run-your-puppet-from-a-git-checkout/">Rump - Run Your Puppet From a Git Checkout</a></h1>
-    
-    
-      <p class="meta">
-        
 
 
 
@@ -220,27 +129,48 @@
   
 
 
-<time datetime="2011-03-07T00:00:00+08:00" pubdate data-updated="true">Mar 7<span>th</span>, 2011</time>
-        
-      </p>
+<time datetime="2011-03-29T00:00:00+08:00" pubdate data-updated="true">Mar 29<span>th</span>, 2011</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/angelia/'>angelia</a>, <a class='category' href='/blog/categories/distributed/'>distributed</a>, <a class='category' href='/blog/categories/icinga/'>icinga</a>, <a class='category' href='/blog/categories/monitoring/'>monitoring</a>, <a class='category' href='/blog/categories/nagios/'>nagios</a>
+  
+</span>
+
+
+    </p>
     
-  </header>
-
-
-  <div class="entry-content"><p>Today I found <a href="https://github.com/railsmachine/rump" title="Rump" target="_blank">Rump</a> that suit my work flow on developing, testing <br />and deploying my puppet manifest. Rump helps you run Puppet locally against a Git checkout.</p>
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://elmer.github.com/ubuntunero/blog/2011/03/29/distributed-system-checks-using-mcollective/" data-via="ubuntunero" data-counturl="http://elmer.github.com/ubuntunero/blog/2011/03/29/distributed-system-checks-using-mcollective/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
 </div>
-  
-  
 
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2011/03/24/notifo-with-angelia/" title="Previous Post: Notifo with Angelia">&laquo; Notifo with Angelia</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2011/03/31/metro-manila-cloud-developer-meetup/" title="Next Post: Metro Manila Cloud Developer Meetup">Metro Manila Cloud Developer Meetup &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
 
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
+  </section>
+
+</div>
+
 <aside class="sidebar">
   
     <section>
@@ -269,7 +199,7 @@
 <section>
   <h1>GitHub Repos</h1>
   <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
+    <li class="loading">Status updating...</li>
   </ul>
   
   <a href="https://github.com/elmer">@elmer</a> on GitHub
@@ -299,7 +229,7 @@
 <section>
   <h1>Latest Tweets</h1>
   <ul id="tweets">
-    <li class="loading">Status updating&#8230;</li>
+    <li class="loading">Status updating...</li>
   </ul>
   <script type="text/javascript">
     $.domReady(function(){
@@ -335,6 +265,7 @@
   
 </aside>
 
+
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -349,7 +280,10 @@
       var disqus_shortname = 'ubuntunero';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://elmer.github.com/ubuntunero/blog/2011/03/29/distributed-system-checks-using-mcollective/';
+        var disqus_url = 'http://elmer.github.com/ubuntunero/blog/2011/03/29/distributed-system-checks-using-mcollective/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

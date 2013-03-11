@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: icinga | Elmer Rivera]]></title>
+  <link href="http://elmer.github.com/ubuntunero/blog/categories/icinga/atom.xml" rel="self"/>
+  <link href="http://elmer.github.com/ubuntunero/"/>
+  <updated>2013-03-11T22:51:25+08:00</updated>
+  <id>http://elmer.github.com/ubuntunero/</id>
+  <author>
+    <name><![CDATA[Elmer Rivera]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Distributed System Checks using MCollective]]></title>
+    <link href="http://elmer.github.com/ubuntunero/blog/2011/03/29/distributed-system-checks-using-mcollective/"/>
+    <updated>2011-03-29T00:00:00+08:00</updated>
+    <id>http://elmer.github.com/ubuntunero/blog/2011/03/29/distributed-system-checks-using-mcollective</id>
+    <content type="html"><![CDATA[<p>Before the days, we've been using single node Nagios/Icinga for monitoring system. This does not scale well as the monitoring box become the single point of bottleneck. Other frustrations getting a false positive checks in the night.&nbsp;As we grow our servers globally through Amazon Web Service's multi region feature, it is expected that we need to have an efficient network monitoring system.</p>
+
+
+<p>We use&nbsp;<a href="http://docs.puppetlabs.com/mcollective/" target="_blank">MCollective</a>&nbsp;for our parallel execution. However, its plugin system structure offers a rich ways of managing systems. One of its feature is using the <a href="http://projects.puppetlabs.com/projects/mcollective-plugins/wiki/AgentNRPE" target="_self">NRPE Agent</a>. This allows you to use MCollective as transport for Nagios remote checks. Moreover, it can be use to aggregate checks as describe in <a href="http://www.devco.net/archives/2010/07/03/aggregating_nagios_checks_with_mcollective.php" target="_self">this blog post</a>.&nbsp;</p>
+
+
+<p>To implement this, I decided to spawn micro instances on each region and installed the NRPE and Nagios Plugins. Create a bunch of checks using Puppet Manifests as describe on the blog. I then replace most of the nrpe checks on my Nagios/Icinga system to use the aggregated system checks. This does not only reduce load on the Icinga box but also distributed checks throughout the regions across the internet.&nbsp;</p>
+
+
+<p>As an added bonus, I also installed <a href="https://github.com/ripienaar/angelia" target="_self">Angelia</a>&nbsp;on those monitoring nodes, uses <a href="https://github.com/ripienaar/angelia/blob/master/mcollective-agent/angelianotify/angelianotify.rb" target="_self">angelianotify</a> agent with Notifo plugin.</p>
+
+
+<p>There has been activities for&nbsp;better <a href="http://www.devco.net/archives/2011/03/25/monitoring_framework_event_correlation.php" target="_self">monitoring framework</a>&nbsp;and I am excited to learn this.</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Notifo with Angelia]]></title>
+    <link href="http://elmer.github.com/ubuntunero/blog/2011/03/24/notifo-with-angelia/"/>
+    <updated>2011-03-24T00:00:00+08:00</updated>
+    <id>http://elmer.github.com/ubuntunero/blog/2011/03/24/notifo-with-angelia</id>
+    <content type="html"><![CDATA[<p>Today while reading on <a href="http://android-developers.blogspot.com/2010/05/android-cloud-to-device-messaging.html">Android Cloud to Device Messaging</a> and <a href="http://en.wikipedia.org/wiki/Apple_Push_Notification_Service">Apple Push Notification Services</a>, I came across a cool service called <a href="http://notifo.com">Notifo.com</a>, and so decided to test. <p /> I've been using <a href="http://icinga.org">Icinga</a> for my monitoring and uses <a href="https://github.com/ripienaar/angelia">Angelia</a> for&nbsp;message delivery. There are a couple of plugins already there and it would be cool to include a 'notifo://' protocol plugin as well. <p /> It uses the <a href="https://github.com/jot/notifo">notifo</a> gem and here is the <a href="https://github.com/elmer/angelia/commit/b9cf8dcfc32920b99ee4e9869e0e7913def0c6c5">code</a></p>
+<p>There is another method <a href="http://poller.se/2011/03/using-notifo-with-nagios/" target="_blank">here</a>&nbsp;and a <a href="http://pypi.python.org/pypi/nagifo/0.1.3" target="_blank">Nagifo</a> project.</p>
+<p><img src="/images/notifo.png"></p>
+<p>&nbsp;</p>
+
+]]></content>
+  </entry>
+  
+</feed>

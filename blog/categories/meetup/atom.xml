@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: meetup | Elmer Rivera]]></title>
+  <link href="http://elmer.github.com/ubuntunero/blog/categories/meetup/atom.xml" rel="self"/>
+  <link href="http://elmer.github.com/ubuntunero/"/>
+  <updated>2013-03-11T22:51:25+08:00</updated>
+  <id>http://elmer.github.com/ubuntunero/</id>
+  <author>
+    <name><![CDATA[Elmer Rivera]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Metro Manila Cloud Developer Meetup]]></title>
+    <link href="http://elmer.github.com/ubuntunero/blog/2011/03/31/metro-manila-cloud-developer-meetup/"/>
+    <updated>2011-03-31T00:00:00+08:00</updated>
+    <id>http://elmer.github.com/ubuntunero/blog/2011/03/31/metro-manila-cloud-developer-meetup</id>
+    <content type="html"><![CDATA[<p>Earlier this evening, I met with my cloudhead buddies on our local group called <a href="http://www.meetup.com/Metro-Manila-Cloud-Web-Developer-Group/" target="_blank">Metro Manila Cloud Web Developer Group</a>&nbsp;to share our `cloud experiences`. Its a topic I suggested in order for us to learn and share our knowledge to one another. This to encourage everyone to participate. While I missed the <a href="http://www.micro.ph/one/category/Cloud+Dev+Meetup/cloud-heads-got-personal-in-open-discussion-meetup-of-metro-manila-cloud-web-developers-group-feburary-edition-at-ubertor-hackerspace" target="_blank">part 1</a>, I definitely had to be present this time.</p>
+
+
+<p>The first one was Cristopher Rigor who talked on Amazon's Cloud Management Console. It was followed by <a href="http://twitter.com/arcusIT" target="_blank">Jojo Colina</a> of arcusit. <a href="http://www.arcusit.ph/" target="_blank">ArcusIT</a> is a Philippine based cloud computing provide that is designed to meet the unique requirements of businesses in the country. Jojo showed the Elastic Computing Platform (ECP) Cloud Builder powering the core of ArcusIT.</p>
+
+
+<p>He also briefly discussed about <a href="http://www.enomaly.com/" target="_blank">Enomaly's</a> <a href="http://spotcloud.com/" target="_blank">Spot Cloud</a>&nbsp;- a global market for getting extra computing capacity. I have not tried it yet, but it sounds cool. Perhaps, getting resources during our testing period where we need a bunch of machines, or even for load testing. I am looking forward to it.</p>
+
+
+<p>I hope to hear more undertakings on the cloud and soon to be able to impart as well.</p>
+
+
+<p>As always, thanks to <a href="http://www.ubertor.com" target="_blank">Ubertor.com</a> and the folks at <a href="http://outsourcingthingsdone.com/" target="_blank">OutsourcingThingsDone</a> for sponsoring the event. Also nice to meet you <a href="http://twitter.com/frrfernando" target="_blank">Dindo</a>&nbsp;of Microsoft Philippines.</p>
+
+
+<p>For more information with the group, please visit our <a href="http://www.meetup.com/Metro-Manila-Cloud-Web-Developer-Group/" target="_blank">MeetUp.com page</a>. More information is also posted in the <a href="http://www.micro.ph/one/category/Cloud+Dev+Meetup" target="_blank">Micro.ph</a> website were the cover the latest events for all things tech in the Philippines.</p>
+
+
+<p><img src="/images/cloudwebmeetup.jpg" width="600" height="300"></p>
+
+
+<p><span style="border-collapse: collapse; color: #333333; font-family: lucida grande, tahoma, verdana, arial, sans-serif; font-size: 11px;">Dindo of Mcrosoft Philippines, Rizza of Micro.ph/one and OTD, Jojo Colina of ArcusIT, Cristopher Rigor, me and meetup facilitator Ron Maravilla.</span></p>
+
+]]></content>
+  </entry>
+  
+</feed>

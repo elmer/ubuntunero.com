@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: notifo | Elmer Rivera]]></title>
+  <link href="http://elmer.github.com/ubuntunero/blog/categories/notifo/atom.xml" rel="self"/>
+  <link href="http://elmer.github.com/ubuntunero/"/>
+  <updated>2013-03-11T22:51:25+08:00</updated>
+  <id>http://elmer.github.com/ubuntunero/</id>
+  <author>
+    <name><![CDATA[Elmer Rivera]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Notifo with Angelia]]></title>
+    <link href="http://elmer.github.com/ubuntunero/blog/2011/03/24/notifo-with-angelia/"/>
+    <updated>2011-03-24T00:00:00+08:00</updated>
+    <id>http://elmer.github.com/ubuntunero/blog/2011/03/24/notifo-with-angelia</id>
+    <content type="html"><![CDATA[<p>Today while reading on <a href="http://android-developers.blogspot.com/2010/05/android-cloud-to-device-messaging.html">Android Cloud to Device Messaging</a> and <a href="http://en.wikipedia.org/wiki/Apple_Push_Notification_Service">Apple Push Notification Services</a>, I came across a cool service called <a href="http://notifo.com">Notifo.com</a>, and so decided to test. <p /> I've been using <a href="http://icinga.org">Icinga</a> for my monitoring and uses <a href="https://github.com/ripienaar/angelia">Angelia</a> for&nbsp;message delivery. There are a couple of plugins already there and it would be cool to include a 'notifo://' protocol plugin as well. <p /> It uses the <a href="https://github.com/jot/notifo">notifo</a> gem and here is the <a href="https://github.com/elmer/angelia/commit/b9cf8dcfc32920b99ee4e9869e0e7913def0c6c5">code</a></p>
+<p>There is another method <a href="http://poller.se/2011/03/using-notifo-with-nagios/" target="_blank">here</a>&nbsp;and a <a href="http://pypi.python.org/pypi/nagifo/0.1.3" target="_blank">Nagifo</a> project.</p>
+<p><img src="/images/notifo.png"></p>
+<p>&nbsp;</p>
+
+]]></content>
+  </entry>
+  
+</feed>
